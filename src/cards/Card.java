@@ -1,17 +1,22 @@
 package cards;
 
+
 /**
  * Represents a playing card. Each card has a Suite and a Value.
  */
 public class Card {
-    private CardSuite suite;
-    private CardValue value;
+    private final CardSuite suite;
+    private final CardValue value;
 
     /**
      * @param suite suite of the card
      * @param value face value of the card
      */
-    public Card(CardSuite suite, CardValue value){
+    public Card(CardSuite suite, CardValue value) {
+        if (suite == null || value == null) {
+            throw new IllegalArgumentException("Suite and Value are required when instantiating a Card");
+        }
+
         this.suite = suite;
         this.value = value;
     }
@@ -19,15 +24,15 @@ public class Card {
     /**
      * @return the cards suite
      */
-    public CardSuite getSuite(){
-        return this.suite;
+    public CardSuite getSuite() {
+        return suite;
     }
 
     /**
      * @return the cards value
      */
-    public CardValue getValue(){
-        return this.value;
+    public CardValue getValue() {
+        return value;
     }
 
     /**

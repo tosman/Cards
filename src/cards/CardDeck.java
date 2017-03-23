@@ -1,6 +1,7 @@
 package cards;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -11,15 +12,15 @@ public class CardDeck {
      * The number of cards each deck starts with.
      */
     public static final int DeckSize = 52;
-    private ArrayList<Card> cards;
+    private List<Card> cards;
 
     /**
      * Instantiates a deck with 52 cards
      */
     public CardDeck() {
         cards = new ArrayList(DeckSize);
-        for (CardSuite suite: CardSuite.values()) {
-            for (CardValue value: CardValue.values())  {
+        for (CardSuite suite : CardSuite.values()) {
+            for (CardValue value : CardValue.values()) {
                 cards.add(new Card(suite, value));
             }
         }
@@ -27,17 +28,19 @@ public class CardDeck {
 
     /**
      * Gets the current number of cards available in the deck
+     *
      * @return number of cards remaining
      */
-    public int getNumberOfCards(){
+    public int getNumberOfCards() {
         return cards.size();
     }
 
     /**
-     * Shuffles the CardDeck of cards in place. Uses 'java.util.Random'
-     * for randomness.
+     * Shuffles the deck of cards in place. Uses 'java.util.Random'
+     * for randomness. Ensures that each card will be moved from its initial
+     * position
      */
-    public void shuffle(){
+    public void shuffle() {
         Random random = new Random();
         int size = cards.size();
 
@@ -50,23 +53,25 @@ public class CardDeck {
 
     /**
      * Get list of cards in the deck
+     *
      * @return Current Cards in the deck
      */
-    public ArrayList<Card> getCards(){
+    public List<Card> getCards() {
         return cards;
     }
 
     /**
      * Deal a card. Mutates the deck by removing the last card.
+     *
      * @return Removed Card
      * @throws CardDeckEmptyException when no cards remain in the deck
      */
     public Card dealOneCard() throws CardDeckEmptyException {
-        if(this.cards.size() == 0){
+        if (cards.size() == 0) {
             throw new CardDeckEmptyException();
         }
 
-        return this.cards.remove(this.cards.size() - 1);
+        return cards.remove(this.cards.size() - 1);
 
     }
 }

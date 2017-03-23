@@ -10,8 +10,9 @@ import org.junit.jupiter.api.Test;
 
 class CardDeckTest {
     private CardDeck cardDeck;
+
     @BeforeEach
-    void instantiate(){
+    void instantiate() {
         cardDeck = new CardDeck();
     }
 
@@ -21,7 +22,7 @@ class CardDeckTest {
     }
 
     @Test
-    void when_shuffling_deck_should_be_shuffled(){
+    void when_shuffling_deck_should_be_shuffled() {
         Assertions.assertFalse(isDeckShuffled(cardDeck));
         cardDeck.shuffle();
         Assertions.assertTrue(isDeckShuffled(cardDeck));
@@ -42,7 +43,7 @@ class CardDeckTest {
 
         Assertions.assertTrue(cardDeck.getNumberOfCards() == 0);
 
-        Assertions.expectThrows(CardDeckEmptyException.class, () -> cardDeck.dealOneCard());
+        Assertions.assertThrows(CardDeckEmptyException.class, () -> cardDeck.dealOneCard());
     }
 
     private boolean isDeckWhole(CardDeck cardDeck) {
@@ -52,11 +53,11 @@ class CardDeckTest {
     private boolean isDeckShuffled(CardDeck cardDeck) {
         CardDeck cmpDeck = new CardDeck();
 
-        for(int i = 0; i < cmpDeck.getNumberOfCards(); i++){
+        for (int i = 0; i < cmpDeck.getNumberOfCards(); i++) {
             Card cmpCard = cmpDeck.getCards().get(i);
             Card card = cardDeck.getCards().get(i);
 
-            if(card.equals(cmpCard)){
+            if (card.equals(cmpCard)) {
                 return false;
             }
         }

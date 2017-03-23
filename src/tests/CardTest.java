@@ -40,4 +40,14 @@ public class CardTest {
 
         Assertions.assertFalse(cmpCard.equals(card));
     }
+
+    @Test
+    void card_should_only_accept_valid_suite_values() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> new Card(null, CardValue.ACE));
+    }
+
+    @Test
+    void card_should_only_accept_valid_face_valies() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> new Card(CardSuite.CLUBS, null));
+    }
 }

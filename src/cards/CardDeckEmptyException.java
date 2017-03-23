@@ -7,8 +7,7 @@ public class CardDeckEmptyException extends Exception {
     public CardDeckEmptyException() {
     }
 
-    public CardDeckEmptyException(String message)
-    {
+    public CardDeckEmptyException(String message) {
         super(message);
     }
 }
