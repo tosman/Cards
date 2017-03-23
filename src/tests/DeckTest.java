@@ -7,11 +7,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-/**
- * Created by tarekosman on 3/22/17.
- */
+
 class DeckTest {
-    Deck deck;
+    private Deck deck;
     @BeforeEach
     void instantiate(){
         deck = new Deck();
@@ -47,11 +45,11 @@ class DeckTest {
         Assertions.expectThrows(DeckEmptyException.class, () -> deck.dealOneCard());
     }
 
-    boolean isDeckWhole(Deck deck){
+    private boolean isDeckWhole(Deck deck) {
         return (deck.getNumberOfCards() == Deck.DeckSize);
     }
 
-    boolean isDeckShuffled(Deck deck){
+    private boolean isDeckShuffled(Deck deck) {
         Deck cmpDeck = new Deck();
 
         for(int i = 0; i < cmpDeck.getNumberOfCards(); i++){

@@ -1,7 +1,7 @@
 package cards;
 
 /**
- * Created by tarekosman on 3/22/17.
+ * Possible card values
  */
 public enum CardValue {
     ACE,

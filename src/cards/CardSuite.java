@@ -1,7 +1,7 @@
 package cards;
 
 /**
- * Created by tarekosman on 3/22/17.
+ * Possible card suites
  */
 public enum CardSuite {
     HEARTS,

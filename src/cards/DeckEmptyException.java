@@ -1,7 +1,7 @@
 package cards;
 
 /**
- * Created by tarekosman on 3/22/17.
+ * Exception when a Card Deck is empty.
  */
 public class DeckEmptyException extends Exception {
     public DeckEmptyException() {}
