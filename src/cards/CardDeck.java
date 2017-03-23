@@ -6,7 +6,7 @@ import java.util.Random;
 /**
  * Represents a 52 playing card deck
  */
-public class Deck {
+public class CardDeck {
     /**
      * The number of cards each deck starts with.
      */
@@ -16,7 +16,7 @@ public class Deck {
     /**
      * Instantiates a deck with 52 cards
      */
-    public Deck(){
+    public CardDeck() {
         cards = new ArrayList(DeckSize);
         for (CardSuite suite: CardSuite.values()) {
             for (CardValue value: CardValue.values())  {
@@ -34,7 +34,7 @@ public class Deck {
     }
 
     /**
-     * Shuffles the Deck of cards in place. Uses 'java.util.Random'
+     * Shuffles the CardDeck of cards in place. Uses 'java.util.Random'
      * for randomness.
      */
     public void shuffle(){
@@ -59,11 +59,11 @@ public class Deck {
     /**
      * Deal a card. Mutates the deck by removing the last card.
      * @return Removed Card
-     * @throws DeckEmptyException when no cards remain in the deck
+     * @throws CardDeckEmptyException when no cards remain in the deck
      */
-    public Card dealOneCard() throws DeckEmptyException{
+    public Card dealOneCard() throws CardDeckEmptyException {
         if(this.cards.size() == 0){
-            throw new DeckEmptyException("Deck Empty!");
+            throw new CardDeckEmptyException();
         }
 
         return this.cards.remove(this.cards.size() - 1);
